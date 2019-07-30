@@ -1,5 +1,7 @@
-# Gecko driver log 
+# Gecko driver log
 geckodriver.log
 
 # VSCode Settings
 .vscode
+
+credential.txt
