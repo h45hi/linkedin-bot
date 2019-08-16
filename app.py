@@ -1,6 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-import time
+import time, pdb
 
 URL = 'https://www.linkedin.com/'
 
@@ -25,23 +25,30 @@ class LinkedinBot:
 		time.sleep(2)
 		sign_in = bot.find_element_by_class_name("btn__primary--large.from__button--floating").click()
 		
-	def search_for(self,position):
-		position.strip(' ')
+	def search_for(self,position,page_no=1):
 		bot = self.bot
-		search_url = bot.get(URL+'search/results/people/?keywords='+position+'&origin=SWITCH_SEARCH_VERTICAL')
-
-	def download_resume(self):
-		bot = self.bot
-		# bot.execute_script('window.scrollTo(0,document.body.scrollHeight)')
-		profiles = bot.find_elements_by_class_name("search-result__result-link")
+		counter = 1
 		unique_links = []
+		while page_no >= counter:
+			str_counter = str(counter)
+			search_url = bot.get(URL+'search/results/people/?keywords='+position+'&origin=SWITCH_SEARCH_VERTICAL&page='+str_counter)
+			profiles = bot.find_elements_by_class_name("search-result__result-link")
 
-		for person in profiles:
-			link = person.get_attribute('href')
-			if link not in unique_links:
+			for person in profiles:
+				link = person.get_attribute('href')
+				if link not in unique_links:
 					unique_links.append(link)
 
-		for link in unique_links:
+			counter += 1
+			time.sleep(2)
+		return unique_links
+
+
+
+	def download_resume(self, links):
+		bot = self.bot
+		
+		for link in links:
 			bot.get(link)
 			time.sleep(5)
 			more = bot.find_element_by_class_name("pv-s-profile-actions__overflow-toggle.artdeco-button").click()
@@ -53,6 +60,8 @@ class LinkedinBot:
 t = LinkedinBot('kumarnisit@gmail.com', 'HPiZ_CuwsD5$dqT')
 t.login()
 time.sleep(5)
-t.search_for('Deepak')
-time.sleep(5)
-t.download_resume()
+page_no = int(input('Enter number of pages you want to search for'))
+links = t.search_for('Deepak', page_no)
+print(links)
+# time.sleep(5)
+# t.download_resume(links)
