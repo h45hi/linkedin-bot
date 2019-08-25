@@ -34,8 +34,8 @@ In order for script to work it depends on some external libraries, to install al
 $ pip install -r requirements.txt
 ```
 ### Drivers
-For running script in chrome, download [driver] (https://sites.google.com/a/chromium.org/chromedriver/)
-For running script in firefox, download [driver] (https://github.com/mozilla/geckodriver/releases)
+For running script in chrome, download [driver](https://sites.google.com/a/chromium.org/chromedriver/).
+For running script in firefox, download [driver](https://github.com/mozilla/geckodriver/releases).
 Please remember to place driver in location
 ```bash
 $ usr/bin
