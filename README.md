@@ -1,11 +1,11 @@
 # Linkedin Bot
 A selenium based LinkedIN bot which will search for given post and download their resume. I developed it for HR/ Recruitment executive to automate the process of browsing for candidates and downloading their resume.
 
-## Pulling repo to local machine
-In order to pull this repo to your local machine execute the following
+## Cloning repo to local machine
+In order to clone this repo to your local machine execute the following
 
 ```bash
-$ git pull git@github.com:h45hi/linkedin-bot.git
+$ git clone git@github.com:h45hi/linkedin-bot.git
 ```
 
 ## Create a virtual environment
