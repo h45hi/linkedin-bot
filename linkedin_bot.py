@@ -65,6 +65,6 @@ l = LinkedinBot(os.environ['MAIL'], os.environ['LINKEDIN_PASS']) # LinkedinBot(L
 l.login()
 time.sleep(5)
 page_no = int(input('Enter number of pages you want to search for'))
-links = l.search_for('Odoo Developer', page_no)
+links = l.search_for('Python Developer', page_no) # search_for(Position for which you want resumes, number of pages to search for)
 time.sleep(5)
 l.download_resume(links)
