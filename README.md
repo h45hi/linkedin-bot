@@ -37,8 +37,13 @@ $ pip install -r requirements.txt
 For running script in chrome, download [driver](https://sites.google.com/a/chromium.org/chromedriver/).
 For running script in firefox, download [driver](https://github.com/mozilla/geckodriver/releases).
 Please remember to place driver in location
+#### For Linux
 ```bash
-$ usr/bin
+$ venv/bin
+```
+#### For Windows
+```bash
+$ venv\Scripts
 ```
 ## Execute script
 After installing all dependencies script can execute sucessfully, to run execute
